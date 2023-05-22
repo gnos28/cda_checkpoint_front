@@ -1,0 +1,38 @@
+.container {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: relative;
+
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+
+  transition: all 0.3s ease-in-out;
+
+  cursor: pointer;
+
+  .flag {
+    position: absolute;
+    font-size: 72px;
+    bottom: 14px;
+  }
+
+  .name {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.719);
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.container:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 16px;
+  filter: brightness(0.9);
+}

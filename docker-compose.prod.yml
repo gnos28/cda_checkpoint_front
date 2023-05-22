@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  front:
+    build:
+      context: ./
+      target: production
+    command: npm run start
+    ports:
+      - "3000:3000"
+    networks:
+      - checkpoint_lan
+    restart: always
+
+networks:
+  checkpoint_lan:
+    driver: bridge

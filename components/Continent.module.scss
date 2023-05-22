@@ -1,0 +1,41 @@
+@import "../styles/variables.scss";
+
+$continent-size: 200px;
+
+.container {
+  height: $continent-size;
+  width: $continent-size;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.3s ease-in-out;
+  background-color: lightgray;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+
+  & > h2 {
+    margin: 0;
+    width: 100%;
+    display: block;
+    background-color: white;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .coutriesCount {
+    font-size: 24px;
+  }
+
+  & > div:last-child {
+    margin-bottom: 5px;
+  }
+}
+
+.container:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 16px;
+  filter: brightness(0.9);
+}

@@ -1,0 +1,19 @@
+@import "../styles/variables.scss";
+
+.mainContainer {
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - $header-height);
+
+  overflow-y: auto;
+
+  display: flex;
+  justify-content: center;
+
+  .subContainer {
+    position: relative;
+    max-width: 1600px;
+    padding: 10px;
+    background-color: white;
+  }
+}

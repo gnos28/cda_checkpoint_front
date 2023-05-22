@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  front:
+    build:
+      context: ./
+      target: dev
+    volumes:
+      - ./api:/app/api
+      - ./components:/app/components
+      - ./contexts:/app/contexts
+      - ./hooks:/app/hooks
+      - ./pages:/app/pages
+      - ./public:/app/public
+      - ./styles:/app/styles
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    networks:
+      - checkpoint_lan
+    restart: always
+
+networks:
+  checkpoint_lan:
+    driver: bridge

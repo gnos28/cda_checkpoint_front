@@ -1,0 +1,21 @@
+@import "../styles/variables.scss";
+
+.header {
+  position: relative;
+  height: $header-height;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: lightcoral;
+  gap: 20px;
+  padding-left: 20px;
+  .menuItem {
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    & > span {
+      margin-right: 20px;
+    }
+  }
+}
