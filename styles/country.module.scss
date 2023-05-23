@@ -6,10 +6,52 @@
   background-color: lightgray;
   border-radius: 5px;
 
+  padding-bottom: 20px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   // padding: 10px;
   margin: 20px;
+
+  h2 {
+    padding: 10px;
+    align-self: center;
+    margin: 0;
+    margin-bottom: 20px;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      & > div {
+        padding: 2px 20px;
+      }
+
+      .list {
+        span {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .flag {
+      font-size: 112px;
+      margin-right: 20px;
+    }
+  }
 }

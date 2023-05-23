@@ -53,10 +53,29 @@ const country = (props: CountryProps) => {
     <div className={styles.container}>
       {country === null ? null : (
         <>
-          <h2>{country?.name}</h2>
-          <div>{country?.capital}</div>
-          <div>{country?.currency}</div>
-          <div>{country?.emoji}</div>
+          <h2>{country.name}</h2>
+          <div className={styles.content}>
+            <div className={styles.left}>
+              <div>capital : {country.capital}</div>
+              <div>currency : {country.currency}</div>
+              <div>code : {country.code}</div>
+              <div className={styles.list}>
+                langues :{" "}
+                {country.languages.map((lang) => (
+                  <span key={lang.code}>{lang.name}</span>
+                ))}
+              </div>
+              {country.states.length > 0 && (
+                <div className={styles.list}>
+                  states :{" "}
+                  {country.states.map((state) => (
+                    <span key={state.code.toString()}>{state.name}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className={styles.flag}>{country.emoji}</div>
+          </div>
         </>
       )}
     </div>
@@ -93,8 +112,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
         countryCode: country.code,
       }))
     )
-    .flat()
-    // .filter((_, index) => index < 100);
+    .flat();
+  // .filter((_, index) => index < 100);
 
   return {
     paths: codes.map((code) => ({
