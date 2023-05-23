@@ -9,8 +9,7 @@ export default function Header() {
   const { selection, continents, setSelected } = useContinents();
 
   const goHome = () => {
-    setSelected("continent", "");
-    setSelected("country", "");
+    setSelected("none", "");
     router.push("/");
   };
 

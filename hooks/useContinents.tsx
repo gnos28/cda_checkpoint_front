@@ -12,7 +12,15 @@ export const useContinents = () => {
     if (newContinents.length > 0) setContinents(newContinents);
   };
 
-  const setSelected = (type: "continent" | "country", code: string) => {
+  const setSelected = (
+    type: "continent" | "country" | "none",
+    code: string
+  ) => {
+    if (type === "none")
+      return setSelection({
+        continent: "",
+        country: "",
+      });
     setSelection({ ...selection, [type]: code });
   };
 
