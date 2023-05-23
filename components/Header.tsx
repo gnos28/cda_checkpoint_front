@@ -2,11 +2,12 @@ import React from "react";
 import styles from "./Header.module.scss";
 import { useContinents } from "../hooks/useContinents";
 import { useRouter } from "next/router";
+import { Continent, Country } from "../@types";
 
 export default function Header() {
   const router = useRouter();
 
-  const { selection, continents, setSelected } = useContinents();
+  const { selection, continents, setSelected, getSelected } = useContinents();
 
   const goHome = () => {
     setSelected("none", "");
@@ -22,13 +23,10 @@ export default function Header() {
   };
 
   const getContinentElement = () => {
-    if (!selection.continent && !router.query.continent) return null;
+    const continentSelected = (selection.continent ||
+      router.query.continent) as string;
 
-    const continentSelected = selection.continent || router.query.continent;
-
-    const continent = continents.filter(
-      (continent) => continent.code === continentSelected
-    );
+    const continent = getSelected("continent") as Continent[];
 
     if (!continent.length) return null;
 
@@ -48,25 +46,7 @@ export default function Header() {
   };
 
   const getCountryElement = () => {
-    if (
-      (!selection.continent && !router.query.continent) ||
-      (!selection.country && !router.query.country)
-    )
-      return null;
-
-    const continentSelected = selection.continent || router.query.continent;
-
-    const continent = continents.filter(
-      (continent) => continent.code === continentSelected
-    );
-
-    if (!continent.length) return null;
-
-    const countrySelected = selection.country || router.query.country;
-
-    const country = continent[0].countries.filter(
-      (country) => country.code === countrySelected
-    );
+    const country = getSelected("country") as Country[];
 
     if (!country.length) return null;
 
